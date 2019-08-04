@@ -31,8 +31,9 @@ const MainNavigator = createAppContainer(createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       headerTintColor: white,
       headerStyle: {
-        backgroundColor: purple,
+        backgroundColor: purple
       },
+      title: navigation.state.params.deckId
     }),
   },
   Quiz: {

@@ -17,7 +17,6 @@ class AddCard extends Component {
             question: this.state.question,
             answer: this.state.answer
         }
-        console.log('card: ',card)
 
         this.props.dispatch(addCard(this.props.deck, card))
 
@@ -34,13 +33,13 @@ class AddCard extends Component {
             <View style={[styles.container]}>
 
                 {/* Deck Cover */}
-                <View style={[styles.cardTitle,]}>
+                {/* <View style={[styles.cardTitle,]}>
                     <Text style={{ textAlign: "center", fontSize: 35, color: white}}>
                         {deck.title}
                     </Text>
-                </View>
+                </View> */}
                 <View>
-                    <Text style={{ textAlign: "center", fontSize: 25 }}>
+                    <Text style={{ textAlign: "center", fontSize: 35, color: purple, paddingBottom: 20 }}>
                         Add Card
                     </Text>
                 </View>

@@ -34,7 +34,7 @@ class AddDeck extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={[styles.center, { fontSize: 35, textAlign: "center" }]}>
+                <Text style={[styles.center, { fontSize: 35, }]}>
                     What is the title of your new Deck?
                 </Text>
                 <TextInput
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     inputStyle: {
+        flexDirection: "row",
         fontSize: 25, 
         textAlign: "center", 
         borderColor: purple, 

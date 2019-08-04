@@ -17,7 +17,6 @@ export function getAllDecks() {
     });
   }
   
-
 export function removeDeck(key) {
     return AsyncStorage.getItem(DECKS_STORAGE_KEY)
         .then((results) => {
