@@ -51,11 +51,6 @@ class DeckView extends Component {
                         <Text style={styles.btnText}>Start Quiz</Text>
                     </TouchableOpacity>
                 </View>
-                {/* <View style={{marginTop: 30}}>
-                    <TextButton onPress={this.deleteDeck} style={{ margin: 20, fontSize: 15}}>
-                        Delete Deck
-                    </TextButton>
-                </View> */}
             </View>
         )
     }

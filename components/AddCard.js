@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Platform, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Platform, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import { white, purple, lightPurp } from '../utils/colors'
 import { addCardToDeck } from '../utils/api'
@@ -30,14 +30,7 @@ class AddCard extends Component {
     render() {
         const { deckId, deck } = this.props
         return (
-            <View style={[styles.container]}>
-
-                {/* Deck Cover */}
-                {/* <View style={[styles.cardTitle,]}>
-                    <Text style={{ textAlign: "center", fontSize: 35, color: white}}>
-                        {deck.title}
-                    </Text>
-                </View> */}
+            <KeyboardAvoidingView style={[styles.container]}>
                 <View>
                     <Text style={{ textAlign: "center", fontSize: 35, color: purple, paddingBottom: 20 }}>
                         Add Card
@@ -67,7 +60,7 @@ class AddCard extends Component {
                 >
                     <Text style={styles.btnText}>Submit</Text>
                 </TouchableOpacity>
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }

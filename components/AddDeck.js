@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Platform } from 'react-native'
+import { Text, StyleSheet, TextInput, TouchableOpacity, Platform, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import { white, purple } from '../utils/colors'
 import { submitDeck } from '../utils/api'
@@ -25,6 +25,9 @@ class AddDeck extends Component {
         }))
 
         submitDeck(emptyDeck, deckTitle)
+        .then(this.setState(() => ({
+            deckTitle: ''
+        })))
 
         this.props.navigation.navigate(
             'DeckView',
@@ -33,8 +36,8 @@ class AddDeck extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={[styles.center, { fontSize: 35, }]}>
+            <KeyboardAvoidingView style={styles.container}>
+                <Text style={[styles.center, { fontSize: 25, marginBottom: 10, marginTop: 20}]}>
                     What is the title of your new Deck?
                 </Text>
                 <TextInput
@@ -53,7 +56,7 @@ class AddDeck extends Component {
                 >
                     <Text style={styles.btnText}>Create Deck</Text>
                 </TouchableOpacity>
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -61,10 +64,8 @@ class AddDeck extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
         padding: 20,
-        backgroundColor: white
+        backgroundColor: white,
     },
     center: {
         marginLeft: 30,
@@ -98,17 +99,14 @@ const styles = StyleSheet.create({
     spacing: {
         paddingBottom: 20, 
         paddingTop: 20,
-        paddingLeft: 20,
-        marginTop: 20
+        marginTop: 20,
+        marginBottom: 20,
     },
     inputStyle: {
-        flexDirection: "row",
-        fontSize: 25, 
+        fontSize: 20, 
         textAlign: "center", 
         borderColor: purple, 
         borderWidth: 0.5,
-        alignItems: "stretch"
-
     }
 })
 

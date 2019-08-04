@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import reducer from './reducers';
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { createStackNavigator, createAppContainer } from 'react-navigation'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from './reducers'
 import TabNav from './components/TabNav'
 import DeckView from './components/DeckView'
 import AddCard from './components/AddCard'
-import Quiz from './components/Quiz';
-import { white, purple } from './utils/colors';
+import Quiz from './components/Quiz'
+import { white, purple } from './utils/colors'
+import { setLocalNotification } from './utils/notification';
 
 const MainNavigator = createAppContainer(createStackNavigator({
   Home: {
@@ -48,6 +49,11 @@ const MainNavigator = createAppContainer(createStackNavigator({
 }));
 
 export default class App extends Component {
+  
+  componentDidMount(){
+    setLocalNotification()
+  }
+
   render() {
     return (
       <Provider store={createStore(reducer)}>
